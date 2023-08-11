@@ -1,0 +1,15 @@
+.alert-danger {
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.alert-danger > div {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.errormsginfo {
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 4px;
+}

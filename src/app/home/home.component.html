@@ -1,0 +1,11 @@
+<div>
+  <h2>Welcome to the Home Page, {{ username }}!</h2>
+  <div>
+    <button (click)="togglePasswordUpdate()">Update Password</button>
+    <div *ngIf="showPasswordUpdate">
+      <label for="newPassword">New Password:</label>
+      <input type="password" id="newPassword" [(ngModel)]="newPassword">
+      <button (click)="updatePassword()">Save Password</button>
+    </div>
+  </div>
+</div>

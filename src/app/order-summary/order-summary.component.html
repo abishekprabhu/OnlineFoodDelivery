@@ -1,0 +1,125 @@
+       <!-- Navbar & Hero Start -->
+       <div class="container-fluid py-5 bg-dark hero-header mb-5 position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+            <a href="" class="navbar-brand p-0">
+                <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Food Box</h1>
+                <!-- <img src="img/logo.png" alt="Logo"> -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0 pe-4">
+                    <a [routerLink]="['/home']" class="nav-item nav-link">Home</a>
+                    <a [routerLink]="['/about']" class="nav-item nav-link ">About</a>
+                    <a [routerLink]="['/foodlist']" class="nav-item nav-link">Menu</a>
+                    <a [routerLink]="['/cart']" class="nav-item nav-link active">Cart</a>
+                    <!-- <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="booking.html" class="dropdown-item">Booking</a>
+                            <a href="team.html" class="dropdown-item">Our Team</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                        </div>
+                    </div> -->
+                    <div class="nav-item dropdown">
+                    
+                      <!-- <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ username }}</a> -->
+                      <div class="dropdown-menu m-0">
+                          <a [routerLink]="['/edituser']" class="dropdown-item">profile</a>
+      
+                      </div>
+                  </div>
+                    <a [routerLink]="['/contact']" class="nav-item nav-link">Contact</a>
+                </div>
+                <a [routerLink]="['/signin']" class="btn btn-primary py-2 px-4">Sign in</a>
+            </div>
+        </nav>
+
+        <!-- <div class="container-fluid py-5 bg-dark hero-header mb-5">
+            <div class="container text-center my-5 pt-5 pb-4">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center text-uppercase">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                    </ol>
+                </nav>
+            </div>
+        </div> -->
+    </div>
+    <!-- Navbar & Hero End -->
+<!-- <div class="container mt-5">
+  <h1 class="text-center">Progress Bar Demo</h1>
+  <app-order-summary [durationInSeconds]="30"></app-order-summary>
+</div> -->
+<!-- <div class="progress">
+  <div
+    class="progress-bar"
+    role="progressbar"
+    [style.width.%]="progressPercentage"
+    [attr.aria-valuenow]="progressPercentage"
+    aria-valuemin="0"
+    aria-valuemax="100"
+  >
+    {{ progressPercentage }}%
+  </div>
+</div> -->
+
+
+
+
+<div class="vh-70 d-flex justify-content-center align-items-center">
+    <div>
+        <div class="mb-4 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="text-success" width="75" height="75"
+                fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+            </svg>
+        </div>
+        <div class="text-center">
+            <h1>Payment Successfully..!</h1>
+            <p>Your Order is on the way.................. <i class="fa fa-truck"></i></p>
+            <button [routerLink]="['/foodlist']" class="btn btn-primary">Back to Menu</button>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 bg-dark text-light">
+    <h1>User Details:</h1>
+    <h2>{{ userDetails.name }}</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Order Details:</h3>
+        <table class="text-light table table-hover table-bordered">
+          <tr>
+            <th>Field</th>
+            <th>Value</th>
+          </tr>
+          <tr *ngFor="let item of orderDetails | keyvalue">
+            <td>{{ item.key }}</td>
+            <td>{{ item.value }}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <h3>Payment Details:</h3>
+        <table class="text-light table table-bordered table-hover">
+          <tr>
+            <th>Field</th>
+            <th>Value</th>
+          </tr>
+          <tr>
+            <td>Amount</td>
+            <td>₹{{ orderDetails.amount }}</td>
+          </tr>
+          <tr>
+            <td>Payment Method</td>
+            <td>{{ orderDetails.paymentMethod }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  

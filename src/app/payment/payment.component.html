@@ -1,0 +1,141 @@
+       <!-- Navbar & Hero Start -->
+       <div class="container-fluid py-5 bg-dark hero-header mb-5 position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+            <a href="" class="navbar-brand p-0">
+                <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Food Box</h1>
+                <!-- <img src="img/logo.png" alt="Logo"> -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0 pe-4">
+                    <a [routerLink]="['/home']" class="nav-item nav-link">Home</a>
+                    <a [routerLink]="['/about']" class="nav-item nav-link ">About</a>
+                    <a [routerLink]="['/foodlist']" class="nav-item nav-link">Menu</a>
+                    <a [routerLink]="['/cart']" class="nav-item nav-link active">Cart</a>
+                    <!-- <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="booking.html" class="dropdown-item">Booking</a>
+                            <a href="team.html" class="dropdown-item">Our Team</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                        </div>
+                    </div> -->
+                    <div class="nav-item dropdown">
+                    
+                      <!-- <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ username }}</a> -->
+                      <div class="dropdown-menu m-0">
+                          <a [routerLink]="['/edituser']" class="dropdown-item">profile</a>
+      
+                      </div>
+                  </div>
+                    <a [routerLink]="['/contact']" class="nav-item nav-link">Contact</a>
+                </div>
+                <a [routerLink]="['/signin']" class="btn btn-primary py-2 px-4">Sign in</a>
+            </div>
+        </nav>
+
+        <!-- <div class="container-fluid py-5 bg-dark hero-header mb-5">
+            <div class="container text-center my-5 pt-5 pb-4">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center text-uppercase">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                    </ol>
+                </nav>
+            </div>
+        </div> -->
+    </div>
+    <!-- Navbar & Hero End -->
+<div class="container-fluid text-dark" style="background-image: url('https://images.pexels.com/photos/1037992/pexels-photo-1037992.jpeg?auto=compress&cs=tinysrgb&w=400'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; width:100%;">
+  
+<div class="container-xxl py-5">
+  <div class="container">
+      <div class="row g-5 align-items-center">
+          <div class="col-lg-6">
+              <div class="row g-6">
+  
+  <form (ngSubmit)="makePayment()" class="  mb-5">
+    <h2 class="text-center">Payment Form</h2>
+    <label for="amount" class="form-label">Amount:</label>
+    <div class=" input-group mb-3">
+      
+      <span class="input-group-text">₹</span>
+      <input type="number" id="amount" class="form-control" [(ngModel)]="amount" name="amount"  [value]="cartItemsTotalCost()" required disabled>
+      
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" id="email" class="form-control" [(ngModel)]="email" name="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="contact" class="form-label">Contact:</label>
+      <input type="text" id="contact" class="form-control" [(ngModel)]="contact" name="contact" required>
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input type="text" id="name" class="form-control" [(ngModel)]="name" name="name" required>
+    </div>
+    <!-- Additional address details form -->
+    <div class="mb-3">
+      <label for="address" class="form-label">Address:</label>
+      <textarea id="address" class="form-control" [(ngModel)]="address" name="address" rows="3" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="city" class="form-label">City:</label>
+      <input type="text" id="city" class="form-control" [(ngModel)]="city" name="city" required>
+    </div>
+    <div class="mb-3">
+      <label for="state" class="form-label">State:</label>
+      <input type="text" id="state" class="form-control" [(ngModel)]="state" name="state" required>
+    </div>
+    <div class="mb-3">
+      <label for="zip" class="form-label">ZIP Code:</label>
+      <input type="text" id="zip" class="form-control" [(ngModel)]="zip" name="zip" required>
+    </div>
+    
+    
+    <button type="submit" class="btn btn-primary py-2 ml-2 px-4 mb-5" style="margin-left: 10px;">Pay</button>
+    <button type="button" class="btn btn-secondary py-2 px-4 mb-5" style="margin-right: 10px;"(click)="payWithCash()">Pay with Cash</button>
+    <!-- Spinner -->
+<div id="spinner" *ngIf="isLoading" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+  <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+  </form>
+  </div>
+  </div>
+  <div class="col-lg-6 mt-5">
+  <form class="">
+    <div *ngIf="cartItems.length > 0">
+      <h3 class="section-title ff-secondary text-start text-primary fw-normal">Cart Items:</h3>
+      <ul class="list-group">
+        <li *ngFor="let cartItem of cartItems" class="list-group-item">
+          <div class="row">
+            <div class="col-md-8">
+              <strong>{{ cartItem.foodItem.name }}</strong> - {{ cartItem.quantity }} pcs
+            </div>
+            <div class="col-md-4 text-right">
+              {{ cartItem.totalFoodItemCost | currency : "INR" }}
+            </div>
+          </div>
+          
+        </li>
+      </ul>
+      <div class="mb-3 mt-3">
+        <h2 class="text-center mb-3"><i>Total Amount</i></h2>
+     <input type="number" id="amount" class=" text-center form-control" [(ngModel)]="amount" name="amount"  [value]="cartItemsTotalCost()" required disabled>
+      </div>
+    </div>
+
+  </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
